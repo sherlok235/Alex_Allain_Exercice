@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <list>
-
+namespace neroapp {
 
 class parser{
 std::string mystringData;
@@ -13,4 +13,5 @@ parser(std::string s);
 std::list<int> parse();
 };
 
+}
 #endif // PARSER_H

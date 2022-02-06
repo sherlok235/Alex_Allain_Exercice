@@ -1,4 +1,5 @@
 #include "parser.h"
+namespace neroapp {
 
 parser::parser(){}
 
@@ -16,4 +17,5 @@ std::list<int> parser::parse(){
         startNum/=10;
     }
    return myparsnum;
+}
 }

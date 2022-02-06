@@ -3,6 +3,7 @@
 
 #include "parser.h"
 #include <map>
+namespace neroapp {
 
 class WordConvertor{
     parser pars;
@@ -30,5 +31,6 @@ WordConvertor ();
 
 std::string ConvertAll(std::list<int> mynumber);
 };
+}
 
 #endif // WORDCONVERTOR_H

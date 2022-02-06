@@ -1,4 +1,5 @@
 #include "wordconvertor.h"
+namespace neroapp {
 
 WordConvertor::WordConvertor()
 {
@@ -71,3 +72,4 @@ std::string WordConvertor::ConvertAll(std::list<int> mynumber)
         }
         return "Eror";
     }
+}
