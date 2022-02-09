@@ -1,10 +1,7 @@
 #include "wordconvertor.h"
 namespace neroapp {
 
-WordConvertor::WordConvertor()
-{
-
-}
+WordConvertor::WordConvertor(){}
 
 void WordConvertor::Convert_to_NForm(int &a){
     if (a==1||a==2)
@@ -51,6 +48,8 @@ std::string WordConvertor::ConvertNumberWithThreeDigi(std::list<int> &num){
     std::string temp = ConvertDigi(num.front());
     int n =num.front();
     num.pop_front();
+    if (n==0)
+        return ConvertNumberWithTowDigi(num);
     if (n == -1){
         return (temp+" sută " + ConvertNumberWithTowDigi(num));
     }
@@ -58,9 +57,28 @@ std::string WordConvertor::ConvertNumberWithThreeDigi(std::list<int> &num){
 
 }
 
+std::string WordConvertor::ConvertNumberWithFourDigi(std::list<int> &num)
+{
+    std::string ss ,connection_word{" mii"};
+    if (num.front()==1)
+        connection_word=" mie";
+    Convert_to_NForm(num.front());
+    ss=ConvertDigi(num.front());
+    num.pop_front();
+    return ss+connection_word+ConvertNumberWithThreeDigi(num);
+
+}
+
 std::string WordConvertor::ConvertAll(std::list<int> mynumber)
     {
-        switch (mynumber.size()) {
+       std::string ConcatDigi;
+       for(auto i : mynumber)
+            ConcatDigi+=std::to_string(i);
+       size_t size=std::log10(std::stoi(ConcatDigi))+1;
+       if (std::stoi(ConcatDigi)==0)
+           size=1;
+
+        switch (size) {
         case 1:
             return ConvertDigi(mynumber.front());
             break;
@@ -69,6 +87,10 @@ std::string WordConvertor::ConvertAll(std::list<int> mynumber)
             break;
         case 3:
             return ConvertNumberWithThreeDigi(mynumber);
+            break;
+        case 4:
+            return ConvertNumberWithFourDigi(mynumber);
+            break;
         }
         return "Eror";
     }

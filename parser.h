@@ -6,11 +6,11 @@
 namespace neroapp {
 
 class parser{
-std::string mystringData;
+    std::string mystringData;
 public:
-parser();
-parser(std::string s);
-std::list<int> parse();
+    parser();
+    parser(std::string s);
+    std::list<int> parse();
 };
 
 }

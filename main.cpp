@@ -7,7 +7,7 @@ int main() {
         std::cin>>nice;
 
        neroapp:: parser a{nice};
-        neroapp::WordConvertor Convert;
+       neroapp::WordConvertor Convert;
         std::cout<<Convert.ConvertAll(a.parse())<<std::endl;
     }
 
