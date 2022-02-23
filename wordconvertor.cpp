@@ -57,20 +57,51 @@ std::string WordConvertor::ConvertNumberWithThreeDigi(std::list<int> &num){
 
 }
 
-std::string WordConvertor::ConvertNumberWithFourDigi(std::list<int> &num)
-{
+std::string WordConvertor::ConvertNumberWithFourDigi(std::list<int> &num) {
+
+    if (num.front()==0){
+        num.pop_front();
+        return ConvertNumberWithThreeDigi(num);
+    }
     std::string ss ,connection_word{" mii"};
     if (num.front()==1)
         connection_word=" mie";
     Convert_to_NForm(num.front());
     ss=ConvertDigi(num.front());
     num.pop_front();
+
     return ss+connection_word+ConvertNumberWithThreeDigi(num);
 
 }
 
-std::string WordConvertor::ConvertAll(std::list<int> mynumber)
-    {
+std::string WordConvertor::ConvertNumberWithFiveDigi(std::list<int> &num) {
+
+    std::string result;
+
+    if(num.front()==0){
+        num.pop_front();
+        return ConvertNumberWithFourDigi(num);
+    }
+
+
+        std::list<int> temp{};
+        temp.push_back(num.front());
+        num.pop_front();
+        temp.push_back(num.front());
+        num.pop_front();
+        int save_it = temp.front();
+        result = ConvertNumberWithTowDigi(temp);
+
+        if( 1 < save_it){
+            return result+" de mii"+ConvertNumberWithThreeDigi(num);
+        }
+
+
+    return result+" mii"+ConvertNumberWithThreeDigi(num);
+}
+
+std::string WordConvertor::ConvertAll(std::list<int> mynumber) {
+
        std::string ConcatDigi;
        for(auto i : mynumber)
             ConcatDigi+=std::to_string(i);
@@ -91,6 +122,8 @@ std::string WordConvertor::ConvertAll(std::list<int> mynumber)
         case 4:
             return ConvertNumberWithFourDigi(mynumber);
             break;
+        case 5 :
+            return ConvertNumberWithFiveDigi(mynumber);
         }
         return "Eror";
     }

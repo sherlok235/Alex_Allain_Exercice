@@ -2,7 +2,7 @@
 #define WORDCONVERTOR_H
 
 #include "parser.h"
-#include<cmath>
+#include <cmath>
 #include <map>
 namespace neroapp {
 class WordConvertor{
@@ -21,9 +21,10 @@ class WordConvertor{
  protected:
     void Convert_to_NForm(int &a);
     std::string ConvertDigi(int num);
-    std::string ConvertNumberWithTowDigi(std::list<int> & num);
+    std::string ConvertNumberWithTowDigi(std::list<int> &num);
     std::string ConvertNumberWithThreeDigi(std::list<int> &num);
     std::string ConvertNumberWithFourDigi(std::list<int> &num);
+    std::string ConvertNumberWithFiveDigi(std::list<int> &num);
  public:
 
     WordConvertor ();
