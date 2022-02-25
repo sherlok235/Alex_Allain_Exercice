@@ -89,7 +89,7 @@ std::string WordConvertor::ConvertNumberWithFiveDigi(std::list<int> &num) {
         num.pop_front();
         temp.push_back(num.front());
         num.pop_front();
-        int save_it = temp.front();
+        int save_it = temp.front();//save this value because in next line  this value will be deleted
         result = ConvertNumberWithTowDigi(temp);
 
         if( 1 < save_it){
@@ -100,12 +100,20 @@ std::string WordConvertor::ConvertNumberWithFiveDigi(std::list<int> &num) {
     return result+" mii"+ConvertNumberWithThreeDigi(num);
 }
 
+std::string WordConvertor::ConvertNumberWithSixDigi(std::list<int> &num){
+
+    std::string rez = ConvertNumberWithThreeDigi(num);
+    num.pop_front();
+    return  (rez + " de mii " + ConvertNumberWithThreeDigi(num));
+
+}
+
 std::string WordConvertor::ConvertAll(std::list<int> mynumber) {
 
        std::string ConcatDigi;
        for(auto i : mynumber)
             ConcatDigi+=std::to_string(i);
-       size_t size=std::log10(std::stoi(ConcatDigi))+1;
+       size_t size=std::log10(std::stoi(ConcatDigi))+1; // how many digi have this number
        if (std::stoi(ConcatDigi)==0)
            size=1;
 
@@ -124,6 +132,9 @@ std::string WordConvertor::ConvertAll(std::list<int> mynumber) {
             break;
         case 5 :
             return ConvertNumberWithFiveDigi(mynumber);
+            break;
+        case 6:
+            return ConvertNumberWithSixDigi(mynumber);
         }
         return "Eror";
     }

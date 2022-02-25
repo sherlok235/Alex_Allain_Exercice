@@ -34,8 +34,8 @@ bool isNotValid(std::string Validate_this){
 // 10 zece    --------------------- +
 // 100 o suta       --------------- +
 // 1000 o mie       --------------- +
-// 10 000 zece mii
-// 100 000 o suta de mii
+// 10 000 zece mii  --------------- +
+// 100 000 o suta de mii    ------- +
 // 1 000 000 o mie de mii
 // 10 000 000 zece mi de mii
 // 100 000 000 o suta mii de mii
