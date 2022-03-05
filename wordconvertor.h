@@ -28,6 +28,7 @@ class WordConvertor{
     std::string ConvertNumberWithFourDigi(std::list<int> &num);
     std::string ConvertNumberWithFiveDigi(std::list<int> &num);
     std::string ConvertNumberWithSixDigi(std::list<int> &num);
+    std::string ConvertNumberWithSevenDigi(std::list<int> &num);
  public:
 
     WordConvertor ();

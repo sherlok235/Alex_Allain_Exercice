@@ -102,10 +102,29 @@ std::string WordConvertor::ConvertNumberWithFiveDigi(std::list<int> &num) {
 
 std::string WordConvertor::ConvertNumberWithSixDigi(std::list<int> &num){
 
+    if (num.front()==0){
+        num.pop_front();
+        return ConvertNumberWithFiveDigi(num);
+    }
     std::string rez = ConvertNumberWithThreeDigi(num);
     num.pop_front();
     return  (rez + " de mii " + ConvertNumberWithThreeDigi(num));
 
+
+}
+
+std::string  WordConvertor::ConvertNumberWithSevenDigi(std::list<int> &num){
+
+    std::string temp{};
+    if (num.front()==1){
+        temp = "un milion ";
+        num.pop_front();
+        return temp + ConvertNumberWithSixDigi(num);
+    }
+    Convert_to_NForm(num.front());
+    temp=ConvertDigi(num.front());
+   //+ num.pop_front();
+    return temp + " milioane " + ConvertNumberWithSixDigi(num);
 }
 
 std::string WordConvertor::ConvertAll(std::list<int> mynumber) {
@@ -135,6 +154,9 @@ std::string WordConvertor::ConvertAll(std::list<int> mynumber) {
             break;
         case 6:
             return ConvertNumberWithSixDigi(mynumber);
+            break;
+        case 7:
+            return ConvertNumberWithSevenDigi(mynumber);
         }
         return "Eror";
     }
