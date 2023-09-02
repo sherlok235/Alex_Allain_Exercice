@@ -9,4 +9,4 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 #set(Parser_lib parser.cpp)
 #add_library(parser STATIC Parser_lib)
 #-------
-add_executable(rope main.cpp wordconvertor.cpp parser.cpp)
+add_executable(rope main.cpp wordconvertor.cpp parser.cpp parser.h wordconvertor.h)

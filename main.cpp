@@ -17,7 +17,7 @@ int main() {
 
         neroapp::parser a{nice};
         neroapp::WordConvertor Convert;
-        std::cout<<Convert.ConvertAll(a.parse())<<std::endl<<std::endl;
+        std::cout<<Convert(a())<<std::endl<<std::endl;
     }
 
     return 0;

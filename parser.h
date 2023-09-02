@@ -10,6 +10,7 @@ class parser{
 public:
     parser();
     parser(std::string s);
+    std::list<int> operator()(void);
     std::list<int> parse();
 };
 

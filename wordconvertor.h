@@ -8,7 +8,6 @@
 namespace neroapp {
 
 class WordConvertor{
-    parser pars;
     std::map<int , std::string> MyDigitVariant {
          {0 , " zero" } , {1, " unu"  } , {2 , " doi"}
         ,{3 , " trei" } , {4 , " patru "} , {5 , " cinci"}
@@ -21,7 +20,6 @@ class WordConvertor{
     void Convert_to_NForm(int &a);
 
     std::string ConvertDigi(int num);
-
     std::string ConvertNumberWithTowDigi(std::list<int> &num);
     std::string ConvertNumberWithThreeDigi(std::list<int> &num);
     std::string ConvertNumberWithFourDigi(std::list<int> &num);
@@ -32,7 +30,8 @@ class WordConvertor{
  public:
 
     WordConvertor ();
-    std::string ConvertAll(std::list<int> mynumber);
+    std::string ConvertAll(std::list<int>);
+    std::string operator()(std::list<int>);
 };
 }
 
