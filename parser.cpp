@@ -7,20 +7,7 @@ namespace neroapp {
 
     std::list<int> parser::operator()()
     {
-        std::list<int> myparsnum;
-        int startNum = std::stoi(mystringData);
-
-        if (startNum == 0){
-            myparsnum.push_front(0);
-            return myparsnum;
-        }
-
-        for(int i = 0 ; startNum !=0;i++){
-            myparsnum.push_front(startNum%10);
-            startNum/=10;
-        }
-
-        return myparsnum;
+        return parse();
     }
 
     std::list<int> parser::parse(){
